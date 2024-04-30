@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: wincrics_db
+      POSTGRES_USER: wincrics_user
+      POSTGRES_PASSWORD: wincrics_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - wincrics_network
+
+  node:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    networks:
+      - wincrics_network
+
+networks:
+  wincrics_network:
+volumes:
+  pgdata:

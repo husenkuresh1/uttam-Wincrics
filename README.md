@@ -3,15 +3,12 @@
 
 ## Project setup
 ```
-npm install
-```
-## RUN
-```
 git clone <url>
 ```
+
+## RUN
+
 ```
-cd /api/db/migrations
+docker compose up
 ```
-```
-npx knex migrate:latest
-```
+### start accessing http://0.0.0.0:3000/users
