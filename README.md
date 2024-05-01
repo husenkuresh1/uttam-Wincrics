@@ -9,6 +9,6 @@ git clone <url>
 ## RUN
 
 ```
-docker compose up
+docker compose up --build
 ```
 ### start accessing http://0.0.0.0:3000/users
